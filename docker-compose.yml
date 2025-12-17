@@ -1,0 +1,7 @@
+services:
+  glossary:
+    build: .
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./glossary.db:/app/glossary.db
