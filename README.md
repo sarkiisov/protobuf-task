@@ -2,7 +2,9 @@
 
 ## 🔧 Генерация gRPC кода
 
+```
 python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. glossary.proto
+```
 
 ## 🐳 Запуск с помощью Docker Compose
 
