@@ -16,13 +16,13 @@ docker compose up -d
 1. Проверка сервера и методов:
 
    ```
-   C:\Users\Nikita>grpcurl -plaintext localhost:50051 list
+   C:\Users\*****>grpcurl -plaintext localhost:50051 list
    glossary.GlossaryService
    grpc.reflection.v1alpha.ServerReflection
    ```
 
    ```
-   C:\Users\Nikita>grpcurl -plaintext localhost:50051 describe glossary.GlossaryService
+   C:\Users\*****>grpcurl -plaintext localhost:50051 describe glossary.GlossaryService
    glossary.GlossaryService is a service:
    service GlossaryService {
    rpc CreateTerm ( .glossary.CreateTermRequest ) returns ( .glossary.Term );
@@ -36,7 +36,7 @@ docker compose up -d
 2. Создание терминов:
 
    ```
-   C:\Users\Nikita>grpcurl -d "{\"keyword\":\"API\",\"description\":\"Application Programming Interface\"}" -plaintext localhost:50051 glossary.GlossaryService/CreateTerm
+   C:\Users\*****>grpcurl -d "{\"keyword\":\"API\",\"description\":\"Application Programming Interface\"}" -plaintext localhost:50051 glossary.GlossaryService/CreateTerm
    {
    "id": 1,
    "keyword": "API",
@@ -45,7 +45,7 @@ docker compose up -d
    ```
 
    ```
-   C:\Users\Nikita>grpcurl -d "{\"keyword\":\"API\",\"description\":\"Application Programming Interface\"}" -plaintext localhost:50051 glossary.GlossaryService/CreateTerm
+   C:\Users\*****>grpcurl -d "{\"keyword\":\"API\",\"description\":\"Application Programming Interface\"}" -plaintext localhost:50051 glossary.GlossaryService/CreateTerm
    ERROR:
    Code: AlreadyExists
    Message: Term already exists
@@ -54,7 +54,7 @@ docker compose up -d
 3. Получение терминов:
 
    ```
-   C:\Users\Nikita>grpcurl -plaintext localhost:50051 glossary.GlossaryService/GetAllTerms
+   C:\Users\*****>grpcurl -plaintext localhost:50051 glossary.GlossaryService/GetAllTerms
    {
    "id": 1,
    "keyword": "API",
@@ -63,7 +63,7 @@ docker compose up -d
    ```
 
    ```
-   C:\Users\Nikita>grpcurl -d "{\"keyword\":\"API\"}" -plaintext localhost:50051 glossary.GlossaryService/GetTerm
+   C:\Users\*****>grpcurl -d "{\"keyword\":\"API\"}" -plaintext localhost:50051 glossary.GlossaryService/GetTerm
    {
    "id": 1,
    "keyword": "API",
@@ -74,7 +74,7 @@ docker compose up -d
 4. Обновление терминов:
 
    ```
-   C:\Users\Nikita>grpcurl -d "{\"keyword\":\"API\",\"description\":\"UPDATED: Application Programming Interface\"}" -plaintext localhost:50051 glossary.GlossaryService/UpdateTerm
+   C:\Users\*****>grpcurl -d "{\"keyword\":\"API\",\"description\":\"UPDATED: Application Programming Interface\"}" -plaintext localhost:50051 glossary.GlossaryService/UpdateTerm
    {
    "id": 1,
    "keyword": "API",
@@ -85,14 +85,14 @@ docker compose up -d
 5. Удаление терминов:
 
    ```
-   C:\Users\Nikita>grpcurl -d "{\"keyword\":\"API\"}" -plaintext localhost:50051 glossary.GlossaryService/DeleteTerm
+   C:\Users\*****>grpcurl -d "{\"keyword\":\"API\"}" -plaintext localhost:50051 glossary.GlossaryService/DeleteTerm
    {
    "message": "Term 'API' deleted successfully"
    }
    ```
 
    ```
-   C:\Users\Nikita>grpcurl -d "{\"keyword\":\"NonExistent\"}" -plaintext localhost:50051 glossary.GlossaryService/DeleteTerm
+   C:\Users\*****>grpcurl -d "{\"keyword\":\"NonExistent\"}" -plaintext localhost:50051 glossary.GlossaryService/DeleteTerm
    ERROR:
    Code: NotFound
    Message: Term not found
